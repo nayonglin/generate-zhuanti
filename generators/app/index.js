@@ -18,7 +18,7 @@ module.exports = generators.Base.extend({
       return this.prompt([{
         type: 'input',
         name: 'projectName',
-        message: '产品上线的名称(小写字母已下划线为分隔) ',
+        message: '性能上报用的名字',
         default: this.projectName
       }, {
         type: 'input',
@@ -115,7 +115,7 @@ module.exports = generators.Base.extend({
       // 复制项目模板
       copydir.sync(this.templatePath(), this.destinationPath(), function (stat, filepath, filename) {
         // 文件不复制
-        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss') {
+        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss' || filename === 'index.js') {
           return false;
         }
 
@@ -135,7 +135,7 @@ module.exports = generators.Base.extend({
         isHover: this.isHover
       });
 
-      //首页创建
+      // 首页创建
       this.fs.copyTpl(
         this.templatePath('client/index.html'),
         this.destinationPath('client/index.html'), {
@@ -146,7 +146,7 @@ module.exports = generators.Base.extend({
         }
       );
 
-      //index.scss创建
+      // index.scss创建
       this.fs.copyTpl(
         this.templatePath('client/sass/index.scss'),
         this.destinationPath('client/sass/index.scss'), {
@@ -155,7 +155,7 @@ module.exports = generators.Base.extend({
         }
       );
 
-      //app.js创建 
+      // app.js创建 
       this.fs.copyTpl(
         this.templatePath('client/js/mod/app.js'),
         this.destinationPath('client/js/mod/app.js'), {
@@ -163,6 +163,15 @@ module.exports = generators.Base.extend({
           isPop: this.isPop,
           isSecondTab: this.isSecondTab,
           isHover: this.isHover,
+          isNews: this.isNews
+        }
+      );
+
+      
+      // index.js创建 
+      this.fs.copyTpl(
+        this.templatePath('client/js/index.js'),
+        this.destinationPath('client/js/index.js'), {
           isNews: this.isNews
         }
       );
