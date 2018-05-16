@@ -1,0 +1,29 @@
+{
+  "name": "generator-zhuanti",
+  "version": "1.0.0",
+  "description": "zhuanti",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayonglin/generator-zhuanti.git"
+  },
+  "author": "nayonglin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nayonglin/generator-zhuanti/issues"
+  },
+  "homepage": "https://github.com/nayonglin/generator-zhuanti#readme",
+  "dependencies": {
+    "yeoman-generator": "^2.0.5"
+  },
+  "files": [
+    "app",
+    "router"
+  ]
+}
