@@ -2,7 +2,7 @@
 // text: 需要提示的信息
 %>
 <div class="cover"></div>
-<div class="pop3 on">
+<div class="popSucess on">
         <div class="top">温馨提示<div class="close"></div></div>
         <div class="bottom">
             <div class="bottom_top">

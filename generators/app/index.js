@@ -25,10 +25,85 @@ module.exports = generators.Base.extend({
         name: 'pageTitle',
         message: '活动中文名 ',
         default: this.pageTitle
+      }, {
+        type: 'list',
+        name: 'isNews',
+        message: '是否需要战报',
+        choices: [{
+            name: '不需要',
+            value: 'no'
+          },
+          {
+            name: '需要',
+            value: 'yes'
+          },
+        ],
+        default: 'no'
+      }, {
+        type: 'list',
+        name: 'isPop',
+        message: '是否需要弹框',
+        choices: [{
+            name: '不需要',
+            value: 'no'
+          },
+          {
+            name: '需要',
+            value: 'yes'
+          },
+        ],
+        default: 'no'
+      }, {
+        type: 'list',
+        name: 'isLogin',
+        message: '首屏是否需要登录态检测',
+        choices: [{
+            name: '不需要',
+            value: 'no'
+          },
+          {
+            name: '需要',
+            value: 'yes'
+          },
+        ],
+        default: 'no'
+      }, {
+        type: 'list',
+        name: 'isSecondTab',
+        message: '是否需要二级tab切换',
+        choices: [{
+            name: '不需要',
+            value: 'no'
+          },
+          {
+            name: '需要',
+            value: 'yes'
+          },
+        ],
+        default: 'no'
+      }, {
+        type: 'list',
+        name: 'isHover',
+        message: '是否需要hover态，需要的话会添加js事件，但是css和html需要自己写,因为hover样式是不确定的',
+        choices: [{
+            name: '不需要',
+            value: 'no'
+          },
+          {
+            name: '需要',
+            value: 'yes'
+          },
+        ],
+        default: 'no'
       }]).then((answers) => {
 
         this.projectName = answers.projectName;
         this.pageTitle = answers.pageTitle;
+        this.isNews = answers.isNews;
+        this.isPop = answers.isPop;
+        this.isLogin = answers.isLogin;
+        this.isSecondTab = answers.isSecondTab;
+        this.isHover = answers.isHover;
 
       })
     }
@@ -40,7 +115,7 @@ module.exports = generators.Base.extend({
       // 复制项目模板
       copydir.sync(this.templatePath(), this.destinationPath(), function (stat, filepath, filename) {
         // 文件不复制
-        if (filename === 'index.html') {
+        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss') {
           return false;
         }
 
@@ -52,21 +127,49 @@ module.exports = generators.Base.extend({
       // 保存页面的配置
       this.config.set('viewConfig', {
         projectName: this.projectName,
-        pageTitle: this.pageTitle
+        pageTitle: this.pageTitle,
+        isNews: this.isNews,
+        isPop: this.isPop,
+        isLogin: this.isLogin,
+        isSecondTab: this.isSecondTab,
+        isHover: this.isHover
       });
 
+      //首页创建
       this.fs.copyTpl(
         this.templatePath('client/index.html'),
         this.destinationPath('client/index.html'), {
           projectName: this.projectName,
           pageTitle: this.pageTitle,
-          viewName: 'index'
+          isPop: this.isPop,
+          isSecondTab: this.isSecondTab
+        }
+      );
+
+      //index.scss创建
+      this.fs.copyTpl(
+        this.templatePath('client/sass/index.scss'),
+        this.destinationPath('client/sass/index.scss'), {
+          isPop: this.isPop,
+          isSecondTab: this.isSecondTab
+        }
+      );
+
+      //app.js创建 
+      this.fs.copyTpl(
+        this.templatePath('client/js/mod/app.js'),
+        this.destinationPath('client/js/mod/app.js'), {
+          isLogin: this.isLogin,
+          isPop: this.isPop,
+          isSecondTab: this.isSecondTab,
+          isHover: this.isHover,
+          isNews: this.isNews
         }
       );
     }
   },
   end() {
-    this.log('成功创建项目模板!');
+    this.log('专题页项目创建成功！');
   }
 
 });

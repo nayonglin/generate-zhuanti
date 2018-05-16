@@ -1,7 +1,6 @@
 @import "tool/__normalize";
 @import "tool/__mixins";
 @import "tool/__common";
-@import "tool/jquery.jscrollpane";
 html {
 	height: 100%;
 }
@@ -69,8 +68,59 @@ a:hover {}
 			}
 		}
 		.panel_1 {
-					
-		
+		   <% if(isSecondTab == "yes") { %>	
+			.sec_tab {
+				margin: 0 auto;
+				width: 1200px;
+				&.on_sec_tab_1 {
+					background: url("../img/bg_sec_tab_1.png") no-repeat;
+					height: 500px;
+				}
+				&.on_sec_tab_2 {
+					background: url("../img/bg_sec_tab_2.png") no-repeat;
+					height: 600px;
+				}
+				.top {
+					height: 90px;
+					@include clearfix;
+					.left {
+						margin-left: 400px;
+					}
+					.left,
+					.right {
+						width: 240px;
+						text-align: center;
+						float: left;
+						line-height: 80px;
+						color: #7ac2ff;
+						font-size: 38px;
+						font-weight: bold;
+						cursor: pointer;
+						&.on {
+							color: white;
+						}
+					}
+				}
+				.sec_panel_1 {
+					width: 1200px;
+					height: 410px;
+					margin: 0 auto;
+					display: none;
+				}
+				.sec_panel_2 {
+					width: 1200px;
+					height: 510px;
+					margin: 0 auto;
+					display: none;
+				}
+
+				.sec_panel_1,.sec_panel_2 {
+					&.on {
+						display: block;
+					}
+				}
+			}	
+		  <% } %>				
 		}
 		.panel_2 {
 			@include container_wrap("../img/bgh.png");
@@ -84,7 +134,7 @@ a:hover {}
 }
 
 
-
+<% if(isPop == "yes") { %>
 //弹框样式
 .info_wrap {
 	display: none;
@@ -266,7 +316,57 @@ a:hover {}
 			display: block;
 		}
 	}
+	.pop2 {
+		@extend .pop1;
+		.bottom {
+			.bottom_top {
+				padding-top: 30px;
+				text-align: center;
+				height: 48px;
+				line-height: 40px;
+				img {
+					margin-left: -20px;
+				}
+			}
+			.bottom_center {
+				p {
+					padding-top: 40px;
+					font-size: 14px;
+					color: #6645d0;
+					text-align: center;
+					margin-left: -38px;
+					span {
+						color: #fd8642;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+	.pop_confirm {
+		@extend .pop2;
+		.bottom {
+			.bottom_center {
+				p {
+					span {
+						color: #fd8642;
+					}
+				}
+			}
+		}
+	}
+	.popFail,.popSuccess {
+		@extend .pop2;
+		.bottom {
+			.bottom_bottom {
+				.ensure_btn {
+					margin-left: 138px;
+				}
+			}
+		}
+	}
 	&.on {
 		display: block;
 	}
 }
+<% } %>
