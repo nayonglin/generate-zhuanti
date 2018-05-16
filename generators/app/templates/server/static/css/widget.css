@@ -1,0 +1,40 @@
+/*!widget/footer/footer.scss*/
+.bottom-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  background: red;
+}
+
+/*!widget/header/header.scss*/
+.top-header {
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+}
+
+/*!widget/list/list.scss*/
+.list-item {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.list-item button {
+  float: right;
+  margin-top: -70px;
+  margin-right: 20px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #f2f2f2;
+  outline: none;
+  cursor: pointer;
+}

@@ -1,0 +1,88 @@
+
+
+
+/**
+ * @name: 头部banner图片通用样式
+ * @param: $url {str}  背景图片链接
+ * @parak: $height {number} 图片高度
+ */
+@mixin banner($url, $height: 640px) {
+    background: url($url) center top;
+    min-width: 1400px;
+    height: $height;
+}
+
+
+
+/**
+ * @name: 头像，可以显示是否在线通用样式
+ * @param: $h-w {number}  头像宽高
+ * @param: $position-bottom {number} 在线图标距离头像底部位置
+ * @param: $position-right {number} 在线图标距离头像右侧位置
+ */
+@mixin head_wrap($h-w: 60px,$position-bottom: -2px, $position-right: 0) {   
+    position: relative;
+    float: left;
+    width: $h-w;
+    height: $h-w;
+    .head_pic {
+        width: $h-w;
+        height: $h-w;
+        border-radius: $h-w/2;
+    }
+    .is_online {
+        position: absolute;
+        right: $position-right;
+        bottom: $position-bottom;
+        z-index: 20;
+    }
+}
+
+/**
+ * @name: 页面主要内容区域包裹层样式
+ * @param: $url {string}  页面背景图片
+ */
+@mixin container_wrap($url) {
+    background: #fff4ca url($url) no-repeat top center;
+    min-width: 1400px;
+    #container {
+        margin: 0 auto;
+        padding-top: 40px;
+        min-width: 1200px;
+        .panel_1,
+        .panel_2 {
+            display: none;
+            &.on {
+                display: block;
+            }
+        }
+    }
+}
+
+/**
+ * @name: 分页组件样式
+ * @param: $font-color {string} 未选中时字体颜色
+ * @param: $bg-url {string}  背景图片，就是选中的那个背景圆
+ */
+@mixin page($font-color, $bg-url) {
+    // 分页组件
+    font-size: 14px;
+    text-align: center;
+    width: 660px;
+    margin: 30px auto;
+    a {
+        padding: 5px 6px;
+        color: white;
+    }
+    .prev_page,
+    .next_page {
+        color: $font-color;
+    }
+    .page_choose {
+        color: $font-color;
+    }
+    .page_active {
+        background: url($bg-url) no-repeat 0 5px;
+        color: white;
+    }
+}

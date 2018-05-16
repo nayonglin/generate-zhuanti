@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="标记内容太短，则搜索引擎可能不会认为这些内容相关。另外标记不应超过 874 个字符">
+	<meta name="description" content="不超过150个字符">
+	<title><%= pageTitle %></title>
+	<link rel="stylesheet" href="sass/index.scss">
+	<!--STYLE_PLACEHOLDER-->
+	<script type="text/javascript" src="js/lib/mod.js"></script>
+
+	<style type="text/css">
+		body {
+			 padding-top: 50px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.performanceInfo = {};
+		window.performanceInfo.whiteScreenTime = +new Date();
+		window.performanceInfo.firstScreenTime = 0;
+		window.performanceInfo.pageview = "<%= 'web-' + projectName %>";
+	</script>
+ </head>
+ <body>
+	<div class="banner"></div>
+	
+	<div class="nav">
+			<div class="tab1 on">	
+				<img src="./img/text_tab1_active.png" class="text_tab1">
+			</div>
+			<div class="tab2">
+				<img src="./img/text_tab2.png" class="text_tab2">	
+			</div>
+	</div>
+
+	<div class="wrap">
+			<div id="container">
+				<div class="panel_1 on">			
+
+				</div>
+
+				<div class="panel_2">
+					<img src="./img/rule.png">				    
+				</div>
+			</div>
+		</div>
+
+	<!-- 一级弹框 -->
+	<div class="info_wrap">
+		
+		  
+		<!--更改偶像类型  -->
+		<!-- <div class="pop1 on">
+			<div class="top">更改偶像类型<div class="close"></div></div>
+			<div class="bottom">
+				<div class="bottom_top">
+					<div class="idol_type">当前偶像类型：<p class="type1 role_now">颜值担当</p></div>
+					<div class="reputation">知名度：<p class="score">123456</p></div>
+				</div>
+				<div class="bottom_center">
+					<ul>
+						<li class="type1 on">人气担当</li>
+						<li class="type2">才艺担当</li>
+						<li class="type3">智慧担当</li>
+						<li class="type4">气质担当</li>
+						<li class="type5">颜值担当</li>
+					</ul>
+					<p>注：更换偶像类型后知名度奖清零</p>
+				</div>
+				<div class="bottom_bottom">
+					<a href="javascript:void(0);" class="ensure_btn ensure_change_role_btn">确认更改</a>
+					<a href="javascript:void(0);" class="cancel_btn">取消</a>
+				</div>
+			</div>
+		</div> -->
+
+	  	<!-- 确认是否更改偶像类型 -->
+		<!-- <div class="pop2">
+			<div class="top">更改偶像类型<div class="close"></div></div>
+			<div class="bottom">
+				<div class="bottom_top">
+				   <img src="./img/logo6.png">
+				</div>
+				<div class="bottom_center">
+				 <p>当前偶像类型为<span>气质担当</span>,将更改成为<span>才艺担当</span>，<br>
+				  更改后知名度清空重计，是否确认更改？</p> 
+				</div>
+				<div class="bottom_bottom">
+					<a href="javascript:void(0);" class="ensure_btn">确认</a>
+					<a href="javascript:void(0);" class="cancel_btn">我再想想</a>
+				</div>
+			</div>
+		</div> -->
+
+
+
+    	<!--  成功创建联盟-->
+	    <!-- <div class="pop3">
+			<div class="top">创建联盟<div class="close"></div></div>
+			<div class="bottom">
+				<div class="bottom_top">
+				   <img src="./img/logo6.png">
+				</div>
+				<div class="bottom_center">
+				<p>你已成功创建联盟：<span>战队名称名称最多十二个字</span>
+				</div>
+				<div class="bottom_bottom">
+					<a href="javascript:void(0);" class="ensure_btn">好的</a>
+				</div>
+			</div>
+		</div> -->
+
+
+		<!--  联盟无空缺，加入失败-->
+		<!-- <div class="pop4">
+				<div class="top">更改偶像类型<div class="close"></div></div>
+				<div class="bottom">
+					<div class="bottom_top">
+						<img src="./img/logo6.png">
+					</div>
+					<div class="bottom_center">
+						<p>该联盟暂无<span>气质担当</span>的空缺，无法加入！</p>
+						<p class="info1">尝试加入其它联盟吧！</p>
+					</div>
+					<div class="bottom_bottom">
+						<a href="javascript:void(0);" class="ensure_btn">好的</a>
+					</div>
+				</div>
+		</div> -->
+
+    	<!--  创建联盟填写表单 -->
+		<!-- <div class="pop5">
+				<div class="top">创建联盟<div class="close"></div></div>
+				<div class="bottom">
+					<div class="bottom_top">
+						联盟名称：<input type="text"  class="league_name_input" placeholder="限制8个以内的中文字符长度">
+						<p class="p1">请输入名称！</p>
+						<div class="bottom_top_center">
+					     	联盟挂件名称：<input type="text"  class="league_logo__name_input">
+						    <p class="p2">该名称已被占用！</p>
+					    </div>
+					</div>
+					<div class="bottom_center">
+						注：<span>挂件将用于联盟主播的粉丝在公屏发言时昵称后的显示。</span><br>
+							<span>联盟挂件需与联盟名称相关，两个名称提交后不可修改，请谨慎填写</span>
+					</div>
+					<div class="bottom_bottom">
+						<a href="javascript:void(0);" class="ensure_btn">确认创建</a>
+					</div>
+				</div>
+		</div> -->
+
+
+    	<!--  成功更改偶像类型-->
+	    <!-- <div class="pop6">
+				<div class="top">更改偶像类型<div class="close"></div></div>
+				<div class="bottom">
+					<div class="bottom_top">
+					   <img src="./img/logo6.png">
+					</div>
+					<div class="bottom_center">
+					 <p>你已成功更改偶像类型！</p> 
+					</div>
+					<div class="bottom_bottom">
+						<a href="javascript:void(0);" class="ensure_btn">好的</a>
+					</div>
+				</div>
+		</div> -->
+
+
+		<!--  审批失败，该职位已有人-->
+		<!-- <div class="pop7">
+				<div class="top">加盟审批<div class="close"></div></div>
+				<div class="bottom">
+					<div class="bottom_top">
+						<img src="./img/logo6.png">
+					</div>
+					<div class="bottom_center">
+						<p>审批失败！联盟中已存在<span>气质担当</span>的偶像类型主播！</p>
+					</div>
+					<div class="bottom_bottom">
+						<a href="javascript:void(0);" class="ensure_btn">好的</a>
+					</div>
+				</div>
+		</div> -->
+
+		<!-- 联盟详情 -->
+		<!-- <div class="pop8">
+			<div class="top">联盟详情<div class="close"></div></div>
+			<div class="center">
+					<div class="col_1">联盟名称：<span>这里名称名称最多十二个字</span></div>
+					<div class="col_2">联盟挂件：
+						<div class="league_logo">
+							<img src="./img/logo1.png">
+						</div>
+					</div>
+					<div class="col_3">联盟成员：<span>5/5</span></div>
+					<div class="col_4">总知名度：<span>9999</span></div>
+					<div class="col_5">联盟排名：<span>999+</span></div>
+			</div>
+			<div class="bottom">
+				<div class="bottom_top">
+					<ul>
+						<li class="rank">序号</li>
+						<li class="league_name">主播昵称</li>
+						<li class="league_people">偶像类型</li>
+						<li>知名度</li>
+						<li>偶像类型排名</li>
+					</ul>
+				</div>
+				<div class="bottom_bottom">
+					<ul class="leaderboard_2">
+							<li>
+								<div class="list">1</div>
+								<div class="left">
+									<div class="head_wrap">
+										<div class="head">
+											<img src="img/head.png" class="head_pic">
+										</div>
+											<img src="img/online.png" class="is_online"> 
+											<img src="img/leader.png" class="leader">
+									</div>
+											
+										<span class="name">我是主播昵称是有十二个字</span>
+								</div>
+								<div class="right">
+										<div class="col_1">颜值担当</div>
+										<div class="col_2">13212312</div>
+										<div class="col_3">9</div>
+								</div>
+							</li>
+					</ul> 
+				</div>
+			</div>
+		</div> -->
+
+		<!-- 加盟审批 -->
+		<!-- <div class="pop9">
+				<div class="top">加盟审批<div class="close"></div></div>
+				<div class="center">
+						<div class="col_1">当前联盟成员组成(1/5)：
+								<ul>
+										<li class="type5">颜值担当</li>
+										<li class="type4">气质担当</li>
+										<li class="type1 active">人气担当</li>
+										<li class="type3">智慧担当</li>
+										<li class="type2">才艺担当</li>				
+								</ul>
+						</div>
+				</div>
+				<div class="bottom">
+					<div class="bottom_top">
+							<ul>
+								<li class="rank">序号</li>
+								<li class="league_name">主播昵称</li>
+								<li class="league_people">偶像类型</li>
+								<li class="reputation">知名度</li>
+								<li class="type">偶像类型排名</li>
+								<li class="time">申请时间</li>
+								<li class="oprate">操作</li>
+							</ul>
+					</div>
+					<div class="bottom_bottom">
+							<ul class="leaderboard_2">
+									<li>
+										<div class="list">1</div>
+										<div class="left">
+											<div class="head_wrap">
+												<div class="head">
+													<img src="img/head.png" class="head_pic">
+												</div>
+													<img src="img/online.png" class="is_online"> 
+											</div>
+													
+												<span class="name">我是主播昵称是有十二个字</span>
+										</div>
+										<div class="right">
+												<div class="col_1">颜值担当</div>
+												<div class="col_2">13212312</div>
+												<div class="col_3">9</div>
+												<div class="col_4">7月14日 20:30</div>
+												<div class="col_5">
+													<a href="javascript:void(0);" class="permit_btn">通过</a>
+													<a href="javascript:void(0);" class="refuse_btn">拒绝</a>
+												</div>
+										</div>
+									</li>
+							</ul> 
+					</div>
+				</div>
+		</div> -->
+
+	</div>
+
+	<!-- 二级弹框 -->
+	<div class="info_wrap2"></div>
+	
+
+
+   <script type="text/javascript" src="js/index.js" data-loader></script>
+   <script src="//a.msstatic.com/huya/common/header_lg.js"></script>
+   <!--ignore-->
+
+   <!--SCRIPT_PLACEHOLDER-->
+   <script type="text/javascript">
+	  require('js/mod/app');
+   </script>
+   <script src="//a.msstatic.com/huya/hd/cdn_libs/performance_report-min.js"></script>
+   <!--ignore-->
+   <script src="//a.msstatic.com/huya/common/footer.js"></script>
+  <!--ignore-->
+ </body>
+</html>
