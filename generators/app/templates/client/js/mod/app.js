@@ -5,13 +5,14 @@
     var data = require('./data.js');
     var dataFunc = data.dataFunc; // 获取数据的一些方法
     var bus = data.bus; // 存储数据的公共位置
+    var log = require('./util.js');
 
 
     // // 初始所需ajax调用完执行
     dataFunc.done = function () {    
         // render.renderPage(bus.bestLeague.data.vRank, "best_league", 10);
-        // bus.page.pageBestLeague = new PageBestLeague(bus.bestLeague.data.vRank, "best_league", "BestLeague");
-
+        // bus.page.pageBestLeague = new PageBestLeague(bus.bestLeague.data, "best_league", "BestLeague");
+           
     };
 
     App = {

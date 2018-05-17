@@ -6,7 +6,7 @@ var bus = data.bus;
  * 分页组件
  * @param {object} data  分页对象的数据
  * @param {string} name  分页对象名字
- * @param {string} type  分页对象类别，比如说总榜，时段榜
+ * @param {string} type  分页对象类别，比如说总榜，时段榜,用于构造对应的render函数名，所以要传驼峰命名
  */
 var page = function (data, name, type) {
 
@@ -16,6 +16,8 @@ var page = function (data, name, type) {
     this.data = data;
     this.name = name;
     this.renderName = "render" + firUpper(type);
+    //this.partIndex = name.replace("order_", "");// 分区下标
+ 
 
 
 
@@ -23,7 +25,7 @@ var page = function (data, name, type) {
     $('body').on('click', '#prev_' + name, function (e) {
         if (_that.active > 1) {
             $(this).siblings().eq(_that.active - 1).removeClass("page_active").prev().addClass("page_active");
-            render[_that.renderName]((_that.active - 2) * 10, _that.data[bus.curDay], bus.curDay);
+            render[_that.renderName]((_that.active - 2) * 10, data, false);
             _that.active--;
         }
     });
@@ -32,7 +34,7 @@ var page = function (data, name, type) {
     $('body').on('click', '#next_' + name, function () {
         if (_that.active < _that.count) {
             $(this).siblings().removeClass("page_active").eq(_that.active + 1).addClass("page_active");
-            render[_that.renderName](_that.active * 10, _that.data[bus.curDay], bus.curDay);
+            render[_that.renderName]( _that.active * 10, data, false);
             _that.active++;
         }
     });
@@ -40,7 +42,7 @@ var page = function (data, name, type) {
     // 切换页码
     $('body').on('click', '.page_' + name, function () {
         _that.active = parseInt($(this).text());
-       // render[_that.renderName]((_that.active - 1) * 10, _that.data, bus.curDay);
+        render[_that.renderName]((_that.active - 1) * 10, data, false);
         $(this).addClass('page_active').siblings().removeClass('page_active');
     })
 
