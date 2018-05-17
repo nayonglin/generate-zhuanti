@@ -115,7 +115,7 @@ module.exports = generators.Base.extend({
       // 复制项目模板
       copydir.sync(this.templatePath(), this.destinationPath(), function (stat, filepath, filename) {
         // 文件不复制
-        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss' || filename === 'index.js') {
+        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss' || filename === 'index.js' || filename === '__common.scss') {
           return false;
         }
 
@@ -172,6 +172,14 @@ module.exports = generators.Base.extend({
       this.fs.copyTpl(
         this.templatePath('client/js/index.js'),
         this.destinationPath('client/js/index.js'), {
+          isNews: this.isNews
+        }
+      );
+
+       // __common.scss创建 
+       this.fs.copyTpl(
+        this.templatePath('client/sass/tool/__common.scss'),
+        this.destinationPath('client/sass/tool/__common.scss'), {
           isNews: this.isNews
         }
       );
