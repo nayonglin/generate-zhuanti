@@ -12,9 +12,9 @@
 
 /**
  * @name: 头像，可以显示是否在线通用样式
- * @param: $h-w {number}  头像宽高
- * @param: $position-bottom {number} 在线图标距离头像底部位置
- * @param: $position-right {number} 在线图标距离头像右侧位置
+ * @param: $h-w {string}  头像宽高
+ * @param: $position-bottom {string} 在线图标距离头像底部位置
+ * @param: $position-right {string} 在线图标距离头像右侧位置
  */
 
 @mixin head_wrap($h-w: 60px, $position-bottom: -2px, $position-right: 0) {
@@ -145,18 +145,6 @@
                     @extend .role;
                     background-color: #bf56ff;
                 }
-                .wisdom {
-                    @extend .role;
-                    background-color: #fca24d;
-                }
-                .temperament {
-                    @extend .role;
-                    background-color: #3eb1b1;
-                }
-                .yanzhi {
-                    @extend .role;
-                    background-color: $yanzhi-color;
-                }
                 .head_wrap {
                     width: 60px;
                     height: 60px;
@@ -214,3 +202,156 @@
     }
 }
 <% } %>
+
+
+/**
+ * @name: 排行榜标题样式
+ * @param: $width {string} 标题整体宽度
+ * @param: $height {string} 标题整体高度
+ * @param: $width-1 {string} 第一列宽度
+ * @param: $width-2 {string} 第二列宽度
+ * @param: $width-3 {string} 第三列宽度
+ * @param: $width-4 {string} 第四列宽度
+ * @param: $width-5 {string} 第五列宽度
+ * @param: $font-color {string} 字体颜色
+ * @param: $font-size {string} 字体大小
+ */
+
+ @mixin rank_top($width: 500px, $height: 35px, $font-color: black, $font-size: 14px, $width-1: 100px, $width-2: 100px, $width-3: 100px, $width-4: 100px, $width-5: 100px) {
+    .top {
+        ul {
+            height: $height;
+            @include clearfix;
+            li {
+                float: left;
+                height: $height;
+                line-height: $height;
+                font-size: $font-size;
+                font-weight: bold;
+                color: $font-color;
+                &.col_1 {
+                    width: $width-1;
+                }
+                &.col_2 {
+                    width: $width-2;
+                }
+                &.col_3 {
+                    width: $width-3;
+                }
+                &.col_4 {
+                    width: $width-4;
+                }
+                &.col_5 {
+                    width: $width-5;
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * @name: 排行榜列表样式
+ * @param: $width {string} 列表整体宽度
+ * @param: $height {string} 列表整体高度
+ * @param: $width-1 {string} 第一列宽度
+ * @param: $width-2 {string} 第二列宽度
+ * @param: $width-3 {string} 第三列宽度
+ * @param: $width-4 {string} 第四列宽度
+ * @param: $width-5 {string} 第五列宽度
+ * @param: $font-color {string} 字体颜色
+ * @param: $font-size {string} 字体大小
+ */
+
+ @mixin rank($width: 1014px, $height: 850px) {
+    .leaderboard_2 {
+        height: $height;
+        width: $width;
+        overflow: hidden;
+        li {
+            overflow: hidden;
+            .col_1 {
+                color: #433c09;
+                width: 40px;
+                height: 30px;
+                background: url("/img/list_bg2.png") no-repeat 4px 4px;
+                float: left;
+                margin: 25px 55px 0 -5px;
+                padding-left: 18px;
+                font-size: 15px;
+                line-height: 33px;
+            }
+            .list1 {
+                background: url("/img/first.png") 5px no-repeat;
+            }
+            .list2 {
+                background: url("/img/second.png") 5px no-repeat;
+            }
+            .list3 {
+                background: url("/img/third.png") 5px no-repeat;
+            }
+            .col_2 {
+                float: left;
+                width: 236px;
+                height: 80px;
+                line-height: 80px;
+                text-align: left;
+                font-size: 15px;
+                .head_wrap {
+                    position: relative;
+                    float: left;
+                    width: 56px;
+                    height: 56px;
+                    line-height: 60px;
+                    margin-top: 10px;
+                    margin-right: 18px;
+                    .head_pic {
+                        width: 56px;
+                        height: 56px;
+                        border-radius: 28px;
+                    }
+                    .head_border {
+                        width: 56px;
+                        height: 56px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 10;
+                    }
+                    .is_online {
+                        position: absolute;
+                        right: 10px;
+                        bottom: -4px;
+                        z-index: 20;
+                    }
+                    .leader {
+                        position: absolute;
+                        right: 9px;
+                        top: -2px;
+                        z-index: 20;
+                    }
+                }
+                .name {
+                    float: left;
+                    max-width: 118px;
+                    @include ellipsis();
+                    text-decoration: none;
+                    color: #433c09;
+                }
+            }
+            .col_3,
+            .col_4 {
+                color: #433c09;
+                font-size: 14px;
+                float: left;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+            }
+            .col_3 {
+                width: 150px;
+                margin-left: 73px;
+            }
+        }
+    }
+ }
