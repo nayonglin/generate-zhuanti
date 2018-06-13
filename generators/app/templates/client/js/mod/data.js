@@ -23,29 +23,31 @@
          }
      },
      initialData: function () { // 进页面获取各种数据
-          dataFunc.ajax("https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getBestUnionRank", {}, function (res) {
-             bus.bestLeague.data = res.data   // 保存最强联盟数据
-             dataFunc.when();
-          });
-
-          dataFunc.ajax("https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getBestIdolRank", {}, function (res) {
-            bus.bestIdol.data = res.data   // 保存最佳偶像数据
-            dataFunc.when();
-         });
-
-         dataFunc.ajax("https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getPKLive", {}, function (res) {
-            bus.fightLive = res   // 保存对决实况
-            dataFunc.when();
-         });
-
-         dataFunc.ajax("https://activity.huya.com/idolunion/index.php?m=IdolUnion&do=getWarGodLive", {}, function (res) {
-            bus.god = res   // 保存战胜榜
-            dataFunc.when();
-         });
-
+    
         
      }
  }
+
+ // 获取数据的所有接口都写在这里
+var getData = {
+    isTest: false,
+    searchTeam: function (callback, options) { // 获得搜索结果
+        this.ajax((getData.isTest ? "http://test." : "https://") + "activity.huya.com/actworldcup/index.php?m=ActWorldCup&do=searchTeam", options, function (res) {  
+        callback(res)
+        }, "ajax1");
+    },
+    ajax: function (url, data, success, uid) {
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            data: data,
+            cache: true,
+            jsonpCallback: uid,
+            success: success
+        })
+    }
+}
+
 
  //公共数据存放
  var bus = {
@@ -77,6 +79,6 @@
      totalLocation: 0 // 总榜目前渲染的下标 
  }
 
- dataFunc.initialData();
  module.exports.dataFunc = dataFunc;
  module.exports.bus = bus;
+ module.exports.getData = getData;

@@ -2,8 +2,9 @@
 __inline('lib/jquery');
 __inline('lib/underscore');
 <% if(isNews == "yes") { %>
-__inline('lib/jquery.mousewheel');
+    __inline('lib/jquery.mousewheel');
+    __inline('lib/jquery.jscrollpane');
 <% } %>
-// __inline('lib/jquery.jscrollpane');
+
 
 

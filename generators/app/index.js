@@ -115,7 +115,15 @@ module.exports = generators.Base.extend({
       // 复制项目模板
       copydir.sync(this.templatePath(), this.destinationPath(), function (stat, filepath, filename) {
         // 文件不复制
-        if (filename === 'index.html' || filename === 'app.js' || filename === 'index.scss' || filename === 'index.js' || filename === '__common.scss') {
+        if (filename === 'index.html' ||
+          filename === 'app.js' ||
+          filename === 'index.scss' ||
+          filename === 'index.js' ||
+          filename === '__common.scss' ||
+          (filename === 'news' && _this.isNews == "no") ||
+          filename === 'apiConf.js' ||
+          filename === 'fis-conf.js'
+        ) {
           return false;
         }
 
@@ -155,7 +163,7 @@ module.exports = generators.Base.extend({
         }
       );
 
-      // app.js创建 
+      // 客户端app.js创建 
       this.fs.copyTpl(
         this.templatePath('client/js/mod/app.js'),
         this.destinationPath('client/js/mod/app.js'), {
@@ -167,7 +175,38 @@ module.exports = generators.Base.extend({
         }
       );
 
-      
+      // 服务端app.js创建
+      this.fs.copyTpl(
+        this.templatePath('server/app.js'),
+        this.destinationPath('server/app.js'), {}
+      );
+
+      // 服务端fis-conf.js创建
+      this.fs.copyTpl(
+        this.templatePath('client/fis-conf.js'),
+        this.destinationPath('client/fis-conf.js'), {
+          projectName: this.projectName
+        }
+      );
+
+
+      // 客户端apiConf.js创建
+      this.fs.copyTpl(
+        this.templatePath('client/apiConf.js'),
+        this.destinationPath('client/apiConf.js'), {
+          projectName: this.projectName
+        }
+      );
+
+      // 服务端apiConf.js创建
+      this.fs.copyTpl(
+        this.templatePath('server/config/apiConf.js'),
+        this.destinationPath('server/config/apiConf.js'), {
+          projectName: this.projectName
+        }
+      );
+
+
       // index.js创建 
       this.fs.copyTpl(
         this.templatePath('client/js/index.js'),
@@ -176,13 +215,14 @@ module.exports = generators.Base.extend({
         }
       );
 
-       // __common.scss创建 
-       this.fs.copyTpl(
+      // __common.scss创建 
+      this.fs.copyTpl(
         this.templatePath('client/sass/tool/__common.scss'),
         this.destinationPath('client/sass/tool/__common.scss'), {
           isNews: this.isNews
         }
       );
+
     }
   },
   end() {

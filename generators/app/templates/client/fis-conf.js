@@ -1,7 +1,7 @@
 /**
  * @file 设置项目名称，也即静态资源发布的目录
  */
-var projectName = '201805activity';
+var projectName = '<%= projectName %>';
 
 /**
  *发布的cdn域

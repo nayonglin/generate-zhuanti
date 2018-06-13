@@ -15,29 +15,13 @@
  */
 
 module.exports = {
-	"201805activity": {
+	"<%= projectName %>": {
 		"pages": [{
 			"page": "index",
 			"urls": [{
-					"name": "god",
-					"url": 'https://activity.huya.com/idolunion/index.php?m=IdolUnion&do=getWarGodLive'
-				},
-				{
-					"name": "bestLeague",
-					"url": 'https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getBestUnionRank'
-				},
-				{
-					"name": "bestIdol",
-					"url": 'https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getBestIdolRank'
-				},
-				{
-					"name": "fightLive",
-					"url": 'https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getPKLive'
-				},
-				{
-					"name": "news",
-					"url": 'https://activity.huya.com/idolunion/cache.php?m=IdolUnion&do=getWarInfo'
-				},
+					//"name": "",
+					//"url": ''
+				}
 			],
 			"cache": false,
 			"persist": false

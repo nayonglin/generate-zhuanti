@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/nayonglin/generator-zhuanti#readme",
   "dependencies": {
-    "yeoman-generator": "^2.0.5"
+    "copy-dir": "^0.3.0",
+    "yeoman-generator": "^0.24.1",
+    "yosay": "^2.0.2"
   },
   "files": [
     "app",
