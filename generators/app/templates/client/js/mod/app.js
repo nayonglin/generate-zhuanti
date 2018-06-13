@@ -1,9 +1,11 @@
 (function ($, global) {
     var render = require('./render.js');
     var data = require('./data.js');
+    var Page = require('./page.js');
     var dataFunc = data.dataFunc; // 获取数据的一些方法
+    var $$ = data.getData;
     var bus = data.bus; // 存储数据的公共位置
-    var log = require('./util.js').loger;
+    var log = require('./util.js').loger.log;
 
 
     // // 初始所需ajax调用完执行
