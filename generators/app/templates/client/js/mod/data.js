@@ -51,19 +51,7 @@ var getData = {
 
  //公共数据存放
  var bus = {
-     iLeaveUNCnt: null, // 退队次数
-     isSearched: false, // 是否点击过搜索
      searchInput: '', // 保存搜索输入框输入的值
-     myUnionId: null, // 我的联盟uid
-     searchUnionResult: null, // 联盟搜索结果
-     myUid: null, // 我的uid
-     selects: [0, 0, 0, 0, 0],
-     union: null, // 我的联盟信息
-     role: null, // 当前角色下标
-     iScore: null, // 当前分值 
-     activeTabIndex: 0, // 当前处于哪个大区，默认为0，按需使用
-     curDay: null, // 当前是活动第几天
-     outParent: null, // 踢出队员对应项
      bestLeague: {
          data: null, // 最强联盟数据
          tab: 0    
@@ -76,7 +64,6 @@ var getData = {
         pageBestIdol: null,
         pageBestLeague: null
     },
-     totalLocation: 0 // 总榜目前渲染的下标 
  }
 
  module.exports.dataFunc = dataFunc;

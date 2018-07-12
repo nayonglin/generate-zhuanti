@@ -10,8 +10,8 @@
 
     // // 初始所需ajax调用完执行
     dataFunc.done = function () {
-        // render.renderPage(bus.bestLeague.data.vRank, "best_league", 10);
-        // bus.page.pageBestLeague = new PageBestLeague(bus.bestLeague.data, "best_league", "BestLeague");
+         // render.renderPage(bus.teamRank.tScore.vRank, "best_strong", 5);
+         // bus.page.pageBestStrong = new Page(bus.teamRank.tScore, "best_strong", "BestStrong", 5);
 
     };
 
@@ -44,6 +44,11 @@
             // 切换一级tab
             $('.tab1,.tab2').on('click', function () {
                 var index = ($(this)[0].className.split('tab')[1]).replace(' on', '');
+                
+                $('.tab1,.tab2').removeClass('on');
+                $(this).addClass('on');
+                $('.panel_1,.panel_2').removeClass('on');
+                $('.panel_' + index).addClass('on');
 
                 if (index == 1) {
                     $('.text_tab1').attr('src', __uri("/img/text_tab1_active.png"));
@@ -53,10 +58,6 @@
                     $('.text_tab1').attr('src', __uri("/img/text_tab1.png"));
                 }
 
-                $('.tab1,.tab2').removeClass('on');
-                $(this).addClass('on');
-                $('.panel_1,.panel_2').removeClass('on');
-                $('.panel_' + index).addClass('on');
             });
 
             <% if( isSecondTab == "yes") { %>
