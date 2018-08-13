@@ -62,33 +62,33 @@
 
             <% if( isSecondTab == "yes") { %>
 
-            // 切换tab1里面的二级tab
-            $('#sec_tab_1,#sec_tab_2').on('click', function () {
-                // var index = ($(this)[0].className.split('tab')[1]).replace(' on', '');
+                // 切换tab1里面的二级tab
+                $('#sec_tab_1,#sec_tab_2').on('click', function () {
+                    // var index = ($(this)[0].className.split('tab')[1]).replace(' on', '');
 
-                // if(index == 1){
-                //     alert('活动暂未开始~');
-                // }
-                // return;
+                    // if(index == 1){
+                    //     alert('活动暂未开始~');
+                    // }
+                    // return;
 
-                // $('#live,#my_league').removeClass('on');
+                    // $('#live,#my_league').removeClass('on');
 
-                if ($(this).hasClass("left")) { // 点击左边tab
-                    $('.sec_tab').removeClass('on_sec_tab_2').addClass('on_sec_tab_1');
-                    $(this).addClass('on').next().removeClass('on');
-                    $('.text_sec_tab_2').attr('src', __uri("/img/text_sec_tab_2.png"));
-                    $('.text_sec_tab_1').attr('src', __uri("/img/text_sec_tab_1_active.png"));
-                    $('.sec_panel_2').removeClass("on");
-                    $('.sec_panel_1').addClass('on');
-                } else {
-                    $('.sec_tab').removeClass('on_sec_tab_1').addClass('on_sec_tab_2.png');
-                    $(this).addClass('on').prev().removeClass('on');
-                    $('.text_sec_tab_2').attr('src', __uri("/img/text_sec_tab_2_active.png"));
-                    $('.text_sec_tab_1').attr('src', __uri("/img/text_sec_tab_1.png"));
-                    $('.sec_panel_2').addClass("on");
-                    $('.sec_panel_1').removeClass('on');
-                }
-            });
+                    if ($(this).hasClass("left")) { // 点击左边tab
+                        $('.sec_tab').removeClass('on_sec_tab_2').addClass('on_sec_tab_1');
+                        $(this).addClass('on').next().removeClass('on');
+                        $('.text_sec_tab_2').attr('src', __uri("/img/text_sec_tab_2.png"));
+                        $('.text_sec_tab_1').attr('src', __uri("/img/text_sec_tab_1_active.png"));
+                        $('.sec_panel_2').removeClass("on");
+                        $('.sec_panel_1').addClass('on');
+                    } else {
+                        $('.sec_tab').removeClass('on_sec_tab_1').addClass('on_sec_tab_2.png');
+                        $(this).addClass('on').prev().removeClass('on');
+                        $('.text_sec_tab_2').attr('src', __uri("/img/text_sec_tab_2_active.png"));
+                        $('.text_sec_tab_1').attr('src', __uri("/img/text_sec_tab_1.png"));
+                        $('.sec_panel_2').addClass("on");
+                        $('.sec_panel_1').removeClass('on');
+                    }
+                });
             <% } %>
 
 
@@ -100,85 +100,86 @@
 
             <% if(isPop == "yes") { %>
 
-            // 点击弹出确认框
-            $('body').on('click', '.show_confirm_btn', function () {
-                render.renderPopConfirm();
-            });
+                // 点击弹出确认框
+                $('body').on('click', '.show_confirm_btn', function () {
+                    render.renderPopConfirm();
+                });
 
-            // 点击弹出成功或者失败框
-            $('body').on('click', '.show_success_or_fail_btn', function () {
+                // 点击弹出成功或者失败框
+                $('body').on('click', '.show_success_or_fail_btn', function () {
 
-                if (1) { // 成功逻辑
-                    render.renderPopSuccess();
-                } else { // 失败逻辑
+                    if (1) { // 成功逻辑
+                        render.renderPopSuccess();
+                    } else { // 失败逻辑
 
-                }
-            });
-            // 关闭弹窗
-            $('body').on('click', '.close_pop,.close,.cancel_btn,#ensure_btn', function () {
-                $('.info_wrap').removeClass('on');
-            });
+                    }
+                });
+                // 关闭弹窗
+                $('body').on('click', '.close_pop,.close,.cancel_btn,#ensure_btn', function () {
+                    $('.info_wrap').removeClass('on');
+                });
             <% } %>
 
 
-            <% if(isNews == "yes") { %>
-            // 快报加滚动
-            var i = 0;
-            var max = Math.floor($('.news_item').length / 4);
-            $('.live_bottom_bottom').mousewheel(function (event, delta) {
+            <% if(0) { %>
+                // 快报加滚动
+                var i = 0;
+                var max = Math.floor($('.news_item').length / 4);
+                $('.live_bottom_bottom').mousewheel(function (event, delta) {
 
-                if (delta == -1) {
-                    if (!$('.news').is(':animated')) {
-                        if (i < max) {
-                            i++;
+                    if (delta == -1) {
+                        if (!$('.news').is(':animated')) {
+                            if (i < max) {
+                                i++;
+                            }
+                            $('.news').animate({
+                                top: -i * 255
+                            }, 600)
                         }
-                        $('.news').animate({
-                            top: -i * 255
-                        }, 600)
-                    }
-                } else {
-                    if (!$('.news').is(':animated')) {
-                        if (i > 0) {
-                            i--;
+                    } else {
+                        if (!$('.news').is(':animated')) {
+                            if (i > 0) {
+                                i--;
+                            }
+                            $('.news').animate({
+                                top: -i * 255
+                            }, 600)
                         }
-                        $('.news').animate({
-                            top: -i * 255
-                        }, 600)
                     }
-                }
-                event.preventDefault()
-            });
+                    event.preventDefault()
+                });
             <% } %>
 
 
 
             <% if(isHover == "yes") { %>
-            // hover
-            $('body').on('mouseenter', '.has_hover', function (e) {
-                var x = e.clientX;
-                var y = e.clientY;
-                var $hover = $('.hover');
-                var index = $(this).attr('class').split("??")[2]; // index位置按实际class来设置
+                // hover
+                $('body').on('mouseenter', '.has_hover', function (e) {
+                    // var x = e.clientX;
+                    // var y = e.clientY;
+                    // var $hover = $('.hover');
+                    // var index = $(this).attr('class').split("??")[2]; // index位置按实际class来设置
 
-                render.renderHover();
-                $hover.css('left', x + 'px').css('top', y + 'px').addClass('on');
+                    // render.renderHover();
+                    // $hover.css('left', x + 'px').css('top', y + 'px').addClass('on');
+                    $(this).find(".hover").addClass('on');
 
-            });
+                });
 
-            // hover消失
-            $('body').on('mouseleave', '.has_hover', function (e) {
-                $('.hover').removeClass('on');
-            });
-
-
-            $('.hover').on('mouseenter', function () {
-                $(this).addClass('on');
-            });
+                // hover消失
+                $('body').on('mouseleave', '.has_hover', function (e) {
+                    $('.hover').removeClass('on');
+                });
 
 
-            $('.hover').on('mouseleave', function () {
-                $(this).removeClass('on');
-            })
+                $('.hover').on('mouseenter', function () {
+                    $(this).addClass('on');
+                });
+
+
+                $('.hover').on('mouseleave', function () {
+                    $(this).removeClass('on');
+                })
             <% } %>
 
 

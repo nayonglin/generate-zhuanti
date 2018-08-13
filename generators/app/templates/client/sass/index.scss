@@ -1,6 +1,9 @@
-@import "tool/__normalize";
-@import "tool/__mixins";
-@import "tool/__common";
+@import "/sass/tool/__normalize";
+@import "/sass/tool/__mixins";
+@import "/sass/tool/__common";
+<% if(isSecondTab == "yes") { %>	
+@import "/sass/tool/jquery.jscrollpane.scss";	
+<% } %>	
 html {
 	height: 100%;
 }

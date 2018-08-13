@@ -935,8 +935,8 @@
                           if (!horizontalDragPosition) horizontalDragPosition = 0;
                           if (!verticalDragPosition) verticalDragPosition = 0;
   
-                          var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed;
-                          jsp.scrollBy(deltaX * factor, -deltaY * factor, false);
+                          var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed, speed = settings.mouseWheelSpeed;
+                          jsp.scrollBy(deltaX * factor, -deltaY * speed, false);
                           // return true if there was no movement so rest of screen can scroll
                           return dX == horizontalDragPosition && dY == verticalDragPosition;
                       }
@@ -1495,7 +1495,7 @@
           hijackInternalLinks			: false,
           verticalGutter				: 4,
           horizontalGutter			: 4,
-          mouseWheelSpeed				: 3,
+          mouseWheelSpeed				: 15,
           arrowButtonSpeed			: 0,
           arrowRepeatFreq				: 50,
           arrowScrollOnHover			: false,
